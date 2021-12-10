@@ -493,6 +493,7 @@ footer {
 }
 #shortcuts ul li a i{
   padding: 10px 0px;
+  color: white;
 }
 .insta:hover{
   background: linear-gradient(#515BD4, #8134AF, #DD2A7B, #FEDA77, #F58529);
@@ -502,8 +503,8 @@ footer {
   background: #4267b2;
   border-radius: 50%;
 }
-.twt:hover{
-  background: #1da1f2;
+.pdf:hover{
+  background: #5c5c5c;
   border-radius: 50%;
 }
 .rs:hover{
