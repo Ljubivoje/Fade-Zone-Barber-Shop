@@ -627,7 +627,7 @@ form div input[type=text], form div input[type=mail], form div label, form div s
     flex-wrap: wrap;
   }
   #services .price .service {
-    font-size: 1em;
+    font-size: 0.9em;
   }
   #footer .footer-wrap #footer-info .informations h3{
     font-size: 0.75em;
