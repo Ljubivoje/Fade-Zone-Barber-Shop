@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
 *{
     margin: 0px;
     padding: 0px;
     scroll-behavior: smooth;
     text-decoration: none;
-    font-family: 'Open Sans',sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 ::-webkit-scrollbar {
   width: 10px;
