@@ -141,7 +141,7 @@ function validations(){
 	{
 		alert("Choose a service")
 		errors++;
-		return frameElement
+		return false
 	}
 	if(list!="-Choose our service-"){
 		errors=0;
@@ -150,7 +150,7 @@ function validations(){
 	{
 		alert("Choose termin")
 		errors++;
-		return frameElement
+		return false
 	}
 	if(time != "-Choose your termin-"){
 		errors=0;
@@ -159,7 +159,7 @@ function validations(){
 	{
 		alert("Choose a barber")
 		errors++;
-		return frameElement
+		return false
 	}
 	if(barber!="-Choose your barber-"){
 		errors=0;
