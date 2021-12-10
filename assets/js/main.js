@@ -100,6 +100,9 @@ function validations(){
 	var username = document.getElementById('username').value
 	var email = document.getElementById('mail').value
 	var phoneNumber = document.getElementById('phone').value
+	var list = document.getElementById("list").value
+	var time = document.getElementById("time").value
+	var barber = document.getElementById("barberOption").value
 	var nameCheck = /^[A-Za-z. ]{3,30}$/
 	var mailCheck = /^[A-Za-z_]{1,}[0-99]{0,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
 	var phoneNumerCheck = /^[0-9]{10}$/
@@ -131,9 +134,37 @@ function validations(){
 		errors++;
 		return false;
 	}
+	while(list == "-Choose our service-")
+	{
+		alert("Choose a service")
+		errors++;
+		return frameElement
+	}
+	if(list!="-Choose our service-"){
+		errors=0;
+	}
+	while(time == "-Choose your termin-")
+	{
+		alert("Choose termin")
+		errors++;
+		return frameElement
+	}
+	if(time != "-Choose your termin-"){
+		errors=0;
+	}
+	while(barber == "-Choose your barber-")
+	{
+		alert("Choose a barber")
+		errors++;
+		return frameElement
+	}
+	if(barber!="-Choose your barber-"){
+		errors=0;
+	}
 	if(errors<1)
 	{
 		alert("You have succesfuly made an appointment");
+		setTimeout("location.reload(true);",0)
 	}
 }
 let ourServices = ["-Choose our service-","Kids cut","Regular haircut","Fade","Beard Trim","Shave","Hot Towel Shave","Facial Cleanse","Eyebrows","Head Shaving"]
