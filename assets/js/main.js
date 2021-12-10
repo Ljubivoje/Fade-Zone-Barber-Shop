@@ -106,8 +106,8 @@ function validations(){
 	console.log(list);
 	console.log(time)
 	console.log(barber)
-	var nameCheck = /^[A-Za-z. ]{3,30}$/
-	var mailCheck = /^[A-Za-z_]{1,}[0-99]{0,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+	var nameCheck = /^[a-zA-Z]+$/
+	var mailCheck = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
 	var phoneNumerCheck = /^[0-9]{10}$/
 	var errors = 0;
 	if(nameCheck.test(username)){
