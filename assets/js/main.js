@@ -103,9 +103,9 @@ function validations(){
 	var list = document.getElementById("list").value
 	var time = document.getElementById("time").value
 	var barber = document.getElementById("barberOption").value
-	console.log(list);
-	console.log(time)
-	console.log(barber)
+	var date=document.getElementById("calendar")
+	var currentTime=Date.now()
+	var choosenTime=0
 	var nameCheck = /^[a-zA-Z]+$/
 	var mailCheck = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
 	var phoneNumerCheck = /^[0-9]{10}$/
@@ -136,6 +136,23 @@ function validations(){
 		document.getElementById('phone-error').innerHTML = "*Invalid phone number*";
 		errors++;
 		return false;
+	}
+	if(date.value==""){
+		document.getElementById('date-error').innerHTML = "*Choose a date*";
+		errors++;
+		return false;
+	}
+	else{
+	choosenTime=Date.parse(date.value)
+	errors=0;
+	}
+	if(choosenTime<=currentTime){
+		document.getElementById('date-error').innerHTML = "*Choose date in the future*";
+		errors++;
+		return false;
+	}
+	else{
+		document.getElementById('date-error').innerHTML = "";
 	}
 	while(list == "-Choose our service-")
 	{
