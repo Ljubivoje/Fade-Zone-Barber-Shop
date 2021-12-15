@@ -96,100 +96,9 @@ function slidefun(n) {
 	dot[counter - 1].className += " active";
 }
 /* APPOINTMENT */
-function validations(){
-	var username = document.getElementById('username').value
-	var email = document.getElementById('mail').value
-	var phoneNumber = document.getElementById('phone').value
-	var list = document.getElementById("list").value
-	var time = document.getElementById("time").value
-	var barber = document.getElementById("barberOption").value
-	var date=document.getElementById("calendar")
-	var currentDate=Date.now()
-	var choosenDate=0
-	var nameCheck = /^[a-zA-Z]+$/
-	var mailCheck = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
-	var phoneNumerCheck = /^[0-9]{10}$/
-	var errors = 0;
-	if(nameCheck.test(username)){
-	document.getElementById('name-error').innerHTML = "";
-	errors=0;
-}
-	else{
-	document.getElementById('name-error').innerHTML = "*Invalid name*";
-	errors++;
-	return false;
-}
-	if(mailCheck.test(email)){
-		document.getElementById('mail-error').innerHTML = "";
-		errors=0;
-	}
-	else{
-		document.getElementById('mail-error').innerHTML = "*Invalid E-Mail*";
-		errors++;
-		return false;
-	}
-	if(phoneNumerCheck.test(phoneNumber)){
-		document.getElementById('phone-error').innerHTML = "";
-		errors=0;
-	}
-	else{
-		document.getElementById('phone-error').innerHTML = "*Invalid phone number*";
-		errors++;
-		return false;
-	}
-	if(date.value==""){
-		document.getElementById('date-error').innerHTML = "*Choose a date*";
-		errors++;
-		return false;
-	}
-	else{
-	choosenDate=Date.parse(date.value)
-	errors=0;
-	}
-	if(choosenDate<=currentDate){
-		document.getElementById('date-error').innerHTML = "*Choose date in the future*";
-		errors++;
-		return false;
-	}
-	else{
-		document.getElementById('date-error').innerHTML = "";
-		errors=0;
-	}
-	while(list == "-Choose our service-")
-	{
-		alert("Choose a service")
-		errors++;
-		return false
-	}
-	if(list!="-Choose our service-"){
-		errors=0;
-	}
-	while(time == "-Choose your termin-")
-	{
-		alert("Choose termin")
-		errors++;
-		return false
-	}
-	if(time != "-Choose your termin-"){
-		errors=0;
-	}
-	while(barber == "-Choose your barber-")
-	{
-		alert("Choose a barber")
-		errors++;
-		return false
-	}
-	if(barber!="-Choose your barber-"){
-		errors=0;
-	}
-	if(errors<1)
-	{
-		alert("You have succesfuly made an appointment");
-		setTimeout("location.reload(true);",0)
-	}
-}
+
 let ourServices = ["-Choose our service-","Kids cut","Regular haircut","Fade","Beard Trim","Shave","Hot Towel Shave","Facial Cleanse","Eyebrows","Head Shaving"]
-let timeList=["-Choose your termin-","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30"];
+let timeList=["-Choose your time-","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30"];
 let barberList=["-Choose your barber-","Michael Jones","Alex Miller","Chris Wilson"];
 let serviceList=document.getElementById("list")
 	for(var i=0;i<ourServices.length;i++){
@@ -231,3 +140,99 @@ $(document).ready(function (){
 		speed: 50
 	});
 });
+let formSubmit = document.getElementById("form");
+formSubmit.addEventListener("submit",(e)=>{
+	e.preventDefault();
+	var username = document.getElementById('username').value
+	var email = document.getElementById('mail').value
+	var phoneNumber = document.getElementById('phone').value
+	var list = document.getElementById("list").value
+	var time = document.getElementById("time").value
+	var barber = document.getElementById("barberOption").value
+	var date=document.getElementById("calendar")
+	var currentDate=Date.now()
+	var choosenDate=0
+	var nameCheck = /^[a-zA-Z]+$/
+	var mailCheck = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
+	var phoneNumerCheck = /^[0-9]{10}$/
+	var usernameBool = false;
+	var emailBool = false;
+	var phoneNumberBool = false;
+	var listBool = false;
+	var timeBool = false;
+	var barberBool = false;
+	var dateBool= false;
+	
+	if(nameCheck.test(username)){
+	document.getElementById('name-error').innerHTML = "";
+	usernameBool = true;
+	}
+	else{
+	document.getElementById('name-error').innerHTML = "*Invalid name*";
+	usernameBool= false;
+	}
+	if(mailCheck.test(email)){
+		document.getElementById('mail-error').innerHTML = "";
+		emailBool = true;
+	}
+	else{
+		document.getElementById('mail-error').innerHTML = "*Invalid E-Mail*";
+		emailBool = false;
+	}
+	if(phoneNumerCheck.test(phoneNumber)){
+		document.getElementById('phone-error').innerHTML = "";
+		phoneNumberBool = true
+	}
+	else{
+		document.getElementById('phone-error').innerHTML = "*Invalid phone number*";
+		phoneNumberBool = false
+	}
+	if(date.value==""){
+		document.getElementById('date-error').innerHTML = "*Choose a date*";
+		dateBool = false
+	}
+	else{
+	choosenDate=Date.parse(date.value)
+	dateBool = true
+	}
+	if(choosenDate<=currentDate){
+		document.getElementById('date-error').innerHTML = "*Choose date in the future*";
+		dateBool= false
+	}
+	else{
+		document.getElementById('date-error').innerHTML = "";
+		dateBool = true
+	}
+	if (list == "-Choose our service-")
+	{
+		document.getElementById('list-error').innerHTML = "*Choose a service*";
+		listBool = false
+	}
+	else{
+		document.getElementById('list-error').innerHTML = "";
+		listBool = true
+	}
+	if (time != "-Choose your time-")
+	{
+		document.getElementById('time-error').innerHTML = "";
+		timeBool = true
+	}
+	else{
+		document.getElementById('time-error').innerHTML = "*Choose your time*";
+		timeBool = false
+	}
+	if (barber == "-Choose your barber-")
+	{
+		document.getElementById('barber-error').innerHTML = "*Choose a barber*";
+		barberBool = false
+	}
+	else{
+		document.getElementById('barber-error').innerHTML = "";
+		barberBool = true
+	}
+	if(usernameBool&&emailBool&&phoneNumberBool&&dateBool&&listBool&&timeBool&&barberBool)
+	{
+		alert("You have succesfuly made an appointment");
+		setTimeout("location.reload(true);",0)
+	}
+});	
