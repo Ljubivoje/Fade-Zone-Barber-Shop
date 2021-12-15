@@ -151,34 +151,37 @@
                     <div id="title"> <h2>Appointments</h2> </div> 
                     <div class="line"></div> 
                 </div>
-                <form onsubmit="return validations()">
+		<form id="form">
                     <div>
                     <label>Name</label>
-                        <input id="username" name="" type="text">
+                        <input id="username" type="text">
                         <span id="name-error" class="txt-error"> </span>
                     </div>
                     <div>
                         <label>E-mail</label>
-                        <input id="mail" name="" type="mail">
+                        <input id="mail" type="mail">
                         <span id="mail-error" class="txt-error"> </span>
                     </div>
                     <div>
                         <label>Phone number</label>
-                        <input id="phone" name="" type="text">
+                        <input id="phone"  type="text">
                         <span id="phone-error" class="txt-error"> </span>
                     </div>
                     <div>
                       <label for="termin">Choose date:</label>
-                        <input type="date" id="calendar">
+                        <input type="date" id="calendar" name="trip-start">
                         <span id="date-error" class="txt-error"> </span>
                     </div>
                     <select id="list">
                     </select>
+                    <span id="list-error" class="txt-error"> </span> 
                     <select id="time">
                     </select>
+                    <span id="time-error" class="txt-error"> </span>
                     <select id="barberOption">
                     </select>
-                    <input type="submit" name="" class="btn">
+                    <span id="barber-error" class="txt-error"> </span>
+                    <input type="submit"class="btn">
                 </form>
             </section>
         </main>
